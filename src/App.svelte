@@ -7,8 +7,8 @@ let winningColor = ''
 let redScore = 20
 let blueScore = 20
 
-$: redWon = redScore === 0
-$: blueWon = blueScore === 0
+$: redWon = blueScore === 0
+$: blueWon = redScore === 0
 $: gameOver = redWon || blueWon
 
 $: if (redWon) {
