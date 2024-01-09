@@ -1,6 +1,7 @@
 <script>
 export let color
 export let score
+export let gameOver
 
 let borderColor = ''
 let fontColor = ''
@@ -28,25 +29,13 @@ const decreaseScore = () => {
 	}
 }
 
-
-import {createEventDispatcher} from 'svelte'
-const dispatch = createEventDispatcher()
-const submitScore = () => {
-	dispatch('score_submit', {
-		score,
-		color
-	})
-}
-
 </script>
 <div>
-	<form on:submit|preventDefault={submitScore}>
 	<div class="border-4 {borderColor} border-dashed">
 		<div class="text-xl font-bold {fontColor} mt-3 flex place-content-center">Team {teamText}: {score}</div>
 		<div class="mb-3 flex place-content-center">
-			<div><button on:click={increaseScore} class="bg-green-500 w-8 h-8 mr-1 rounded-md font-extrabold text-white">+</button></div>
-			<div><button on:click={decreaseScore} class="bg-red-500 w-8 h-8 rounded-md font-extrabold text-white">-</button></div>
+			<div><button disabled={gameOver} on:click={increaseScore} class="bg-green-500 w-8 h-8 mr-1 rounded-md font-extrabold text-white">+</button></div>
+			<div><button disabled={gameOver} on:click={decreaseScore} class="bg-red-500 w-8 h-8 rounded-md font-extrabold text-white">-</button></div>
 		</div>        
 	</div>      
-	</form>
 </div>
