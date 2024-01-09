@@ -31,7 +31,7 @@ const decreaseScore = () => {
 
 </script>
 <div>
-	<div class="border-4 {borderColor} border-dashed">
+	<div class="border-4 {borderColor} border-dashed mr-1">
 		<div class="text-xl font-bold {fontColor} mt-3 flex place-content-center">Team {teamText}: {score}</div>
 		<div class="mb-3 flex place-content-center">
 			<div><button disabled={gameOver} on:click={increaseScore} class="bg-green-500 w-8 h-8 mr-1 rounded-md font-extrabold text-white">+</button></div>
